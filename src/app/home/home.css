@@ -56,6 +56,7 @@
   font-style: normal;
   font-size: 36px;
   color: #E35336;
+  text-align: center;
 }
 
 .convite-container {
@@ -79,4 +80,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.instrucoes {
+  background-color: #f5efe6;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.texto {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+  text-align: justify;
+  margin-left: 20em;
+}
+
+.fonte-montserrat-simples {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  color: #E35336;
+  text-align: center;
+  margin-bottom: 1em;
 }
