@@ -1,0 +1,110 @@
+/* Cabeçalho */
+.bloco-texto {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.fonte-montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 36px;
+  color: #E35336;
+  margin: 10px 0;
+}
+
+.fonte-bonita {
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-size: 100px;
+  color: #E35336;
+  margin-bottom: 0;
+}
+
+/* Grid configurado para 1 item por linha */
+.grid-presentes {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os cards na tela */
+  gap: 40px;
+  padding: 20px;
+  max-width: 800px; /* Evita que o card fique largo demais em telas gigantes */
+  margin: 0 auto;
+}
+
+/* Card ocupando a largura total do container */
+.card-produto {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-produto:hover {
+  transform: translateY(-5px);
+}
+
+.foto-produto {
+  width: 300px;
+  height: 300px; /* Aumentei um pouco para valorizar a foto no 1x1 */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  align-self: center /* Centraliza a imagem dentro do card */;
+}
+
+.info-produto {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Garante textos centralizados */
+}
+
+.titulo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 24px; /* Aumentado para destacar no layout 1x1 */
+  color: #E35336;
+  margin: 10px 0;
+}
+
+.descricao-texto {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #666;
+  max-width: 500px; /* Limita a largura do texto para melhor leitura */
+  margin-bottom: 15px;
+}
+
+.preco {
+  display: block;
+  font-weight: bold;
+  color: #d66b56;
+  font-size: 1.5rem;
+  margin: 10px 0 20px 0;
+}
+
+.btn-compra {
+  background-color: #d66b56;
+  color: white;
+  border: none;
+  padding: 15px 40px; /* Mais encorpado */
+  border-radius: 30px;
+  width: auto; /* Botão não precisa mais ocupar 100% no 1x1 */
+  min-width: 200px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-compra:hover {
+  background-color: #E35336;
+}

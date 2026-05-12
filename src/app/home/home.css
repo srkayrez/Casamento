@@ -1,0 +1,82 @@
+
+.countdown-container {
+    font-family: 'Playfair Display', serif;
+    color: #e66a5a;
+    text-align: center;
+}
+
+.names-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.fonte-bonita {
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100px;
+  color: #E35336;
+}
+
+.tangerine-regular {
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tangerine-bold {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.fonte-montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:normal;
+  font-style: normal;
+  font-size: 36px;
+  color: #E35336;
+}
+
+.convite-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  background-color: #f5efe6;
+}
+
+.foto-arco {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 200px 200px 0 0; 
+}
+
+.bloco-texto {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
