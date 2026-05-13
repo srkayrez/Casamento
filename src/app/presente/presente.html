@@ -12,14 +12,14 @@
   @for (item of produtos(); track item.titulo) {
     <div class="card-produto">
         <h3 class="titulo">{{ item.titulo }}</h3>
-      <img [src]="item.foto" [alt]="item.titulo" class="foto-produto">
+      <img [src]="item.foto" [alt]="item.titulo" class="foto-produto" />
       
       <div class="info-produto">
         <p class="descricao-texto">{{ item.descricao }}</p>
         <span class="preco">{{ item.valor | currency:'BRL' }}</span>
       </div>
 
-      <div style="text-align: center;">
+      <div class="acoes-produto">
         <button class="btn-compra" (click)="comprar(item)">
           <i class="pi pi-shopping-cart"></i> 
           Presentear

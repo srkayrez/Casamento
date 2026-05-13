@@ -1,3 +1,8 @@
+ol {
+  list-style: disc;
+  margin: 0 0 20px;
+  padding-left: 1.4rem;
+}
 
 .countdown-container {
     font-family: 'Playfair Display', serif;
@@ -32,8 +37,10 @@
   font-family: "Tangerine", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 100px;
+  font-size: clamp(56px, 9vw, 100px);
   color: #E35336;
+  line-height: 0.95;
+  margin: 0;
 }
 
 .tangerine-regular {
@@ -54,9 +61,10 @@
   font-optical-sizing: auto;
   font-weight:normal;
   font-style: normal;
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   color: #E35336;
   text-align: center;
+  margin: 16px 0 0;
 }
 
 .convite-container {
@@ -64,15 +72,18 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 20px;
+  padding: 32px 20px;
   background-color: #f5efe6;
+  box-sizing: border-box;
 }
 
 .foto-arco {
-  width: 300px;
-  height: 450px;
+  width: min(300px, 38vw);
+  aspect-ratio: 2 / 3;
+  height: auto;
   object-fit: cover;
   border-radius: 200px 200px 0 0; 
+  display: block;
 }
 
 .bloco-texto {
@@ -80,31 +91,88 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 620px;
 }
 
 .instrucoes {
-  background-color: #f5efe6;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-  text-align: center;
+  background-color: #F5EFE6;
+  padding: clamp(24px, 5vw, 48px);
+  max-width: 1000px;
+  width: min(100% - 32px, 1000px);
+  box-sizing: border-box;
+  margin: 24px auto 48px;
 }
 
 .texto {
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: clamp(15px, 2.8vw, 16px);
   color: #666;
   margin-bottom: 15px;
-  text-align: justify;
-  margin-left: 20em;
+  text-align: left;
+  line-height: 1.65;
+  margin-left: 0;
 }
 
 .fonte-montserrat-simples {
   font-family: "Montserrat", sans-serif;
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: clamp(18px, 4vw, 24px);
   color: #E35336;
-  text-align: center;
-  margin-bottom: 1em;
+  text-align: left;
+  line-height: 1.25;
+  margin: 34px 0 16px;
+}
+
+.instrucoes > .fonte-montserrat {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 720px) {
+  .convite-container {
+    flex-direction: column;
+    gap: 22px;
+    min-height: calc(100svh - 126px);
+    padding: 28px 18px 34px;
+  }
+
+  .foto-arco {
+    width: min(78vw, 280px);
+    max-height: 52svh;
+  }
+
+  .bloco-texto {
+    width: 100%;
+  }
+
+  .fonte-bonita {
+    max-width: 10ch;
+  }
+
+  .instrucoes {
+    width: min(100% - 24px, 1000px);
+    margin-top: 12px;
+  }
+
+  .texto {
+    text-align: left;
+  }
+}
+
+@media (max-width: 420px) {
+  ol {
+    padding-left: 1.2rem;
+  }
+
+  .convite-container {
+    min-height: auto;
+  }
+
+  .foto-arco {
+    width: min(74vw, 235px);
+  }
+
+  .fonte-bonita {
+    font-size: 52px;
+  }
 }

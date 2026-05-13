@@ -4,47 +4,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
+  padding: 32px 16px 12px;
+  margin-bottom: 16px;
+  background-color: #f5efe6;
 }
 
 .fonte-montserrat {
   font-family: "Montserrat", sans-serif;
   font-weight: normal;
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   color: #E35336;
   margin: 10px 0;
+  line-height: 1.2;
 }
 
 .fonte-bonita {
   font-family: "Tangerine", cursive;
   font-weight: 400;
-  font-size: 100px;
+  font-size: clamp(56px, 9vw, 100px);
   color: #E35336;
-  margin-bottom: 0;
+  line-height: 0.95;
+  margin: 0 0 8px;
 }
 
-/* Grid configurado para 1 item por linha */
 .grid-presentes {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centraliza os cards na tela */
-  gap: 40px;
-  padding: 20px;
-  max-width: 800px; /* Evita que o card fique largo demais em telas gigantes */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+  padding: 20px 16px 48px;
+  max-width: 1100px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* Card ocupando a largura total do container */
 .card-produto {
   display: flex;
   flex-direction: column;
-  width: 100%; 
+  width: 100%;
   background: white;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .card-produto:hover {
@@ -52,59 +56,116 @@
 }
 
 .foto-produto {
-  width: 300px;
-  height: 300px; /* Aumentei um pouco para valorizar a foto no 1x1 */
+  width: min(100%, 300px);
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 20px;
-  align-self: center /* Centraliza a imagem dentro do card */;
+  align-self: center;
+  display: block;
 }
 
 .info-produto {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Garante textos centralizados */
+  align-items: center;
 }
 
 .titulo {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 24px; /* Aumentado para destacar no layout 1x1 */
+  font-size: clamp(19px, 4vw, 24px);
   color: #E35336;
   margin: 10px 0;
+  line-height: 1.25;
 }
 
 .descricao-texto {
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: clamp(15px, 2.8vw, 16px);
   color: #666;
   max-width: 500px;
   margin-bottom: 15px;
+  line-height: 1.5;
 }
 
 .preco {
   display: block;
   font-weight: bold;
   color: #d66b56;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
   margin: 10px 0 20px 0;
+}
+
+.acoes-produto {
+  text-align: center;
 }
 
 .btn-compra {
   background-color: #d66b56;
   color: white;
   border: none;
-  padding: 15px 40px; /* Mais encorpado */
+  padding: 15px 28px;
   border-radius: 30px;
-  width: auto; /* Botão não precisa mais ocupar 100% no 1x1 */
-  min-width: 200px;
+  width: min(100%, 240px);
+  min-height: 50px;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   transition: background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-compra:hover {
   background-color: #E35336;
+}
+
+@media (max-width: 720px) {
+  .bloco-texto {
+    padding: 28px 18px 8px;
+  }
+
+  .fonte-bonita {
+    max-width: 10ch;
+  }
+
+  .grid-presentes {
+    gap: 18px;
+    padding: 16px 12px 36px;
+  }
+
+  .card-produto {
+    padding: 18px;
+  }
+
+  .foto-produto {
+    width: min(100%, 260px);
+  }
+}
+
+@media (max-width: 420px) {
+  .fonte-bonita {
+    font-size: 52px;
+  }
+
+  .fonte-montserrat {
+    font-size: 22px;
+  }
+
+  .card-produto {
+    padding: 16px;
+  }
+
+  .foto-produto {
+    width: min(100%, 220px);
+  }
+
+  .btn-compra {
+    width: 100%;
+  }
 }
