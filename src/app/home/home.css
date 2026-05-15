@@ -1,7 +1,84 @@
+@import url('https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-straight/css/uicons-thin-straight.css');
+
 ol {
   list-style: disc;
   margin: 0 0 20px;
   padding-left: 1.4rem;
+}
+i{
+  font-size: 68px;
+  color:#E35336;
+}
+
+.locais {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(28px, 7vw, 96px);
+  text-align: center;
+}
+
+.local-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.local-icone-mapa {
+  color: inherit;
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.local-item i {
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.local-titulo,
+.local-nome,
+.local-endereco {
+  text-align: center;
+}
+
+.local-titulo {
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.local-nome {
+  margin: 0 0 6px;
+}
+
+.local-endereco {
+  max-width: 34ch;
+  margin: 0;
+}
+
+.mapa-botao {
+  background: #E35336;
+  border: 1px solid #E35336;
+  border-radius: 6px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 20px;
+  min-height: 42px;
+  padding: 0 20px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.mapa-botao:hover,
+.mapa-botao:focus-visible {
+  background: transparent;
+  color: #E35336;
+  transform: translateY(-1px);
 }
 
 .countdown-container {
@@ -67,6 +144,14 @@ ol {
   margin: 16px 0 0;
 }
 
+.strong{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  color:#E35336;
+}
+
 .convite-container {
   display: flex;
   align-items: center;
@@ -103,14 +188,33 @@ ol {
   margin: 24px auto 48px;
 }
 
+.informacoess {
+  background-color: #F5EFE6;
+  padding: clamp(24px, 5vw, 48px);
+  max-width: 1000px;
+  width: min(100% - 32px, 1000px);
+  box-sizing: border-box;
+  margin: 24px auto 48px;
+}
+
 .texto {
   font-family: "Montserrat", sans-serif;
   font-size: clamp(15px, 2.8vw, 16px);
   color: #666;
   margin-bottom: 15px;
   text-align: left;
-  line-height: 1.65;
+  line-height: 1.5;
   margin-left: 0;
+}
+
+.instrucoes > p.texto {
+  text-align: justify;
+  text-align-last: left;
+}
+
+.instrucoes ol .texto {
+  text-align: justify;
+  text-align-last: left;
 }
 
 .fonte-montserrat-simples {
@@ -156,6 +260,33 @@ ol {
 
   .texto {
     text-align: left;
+  }
+
+  .locais {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .local-item i {
+    font-size: 58px;
+    margin-bottom: 14px;
+  }
+
+  .local-icone-mapa {
+    min-height: 68px;
+    min-width: 68px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mapa-botao {
+    width: min(100%, 240px);
+  }
+
+  .local-titulo,
+  .local-nome,
+  .local-endereco {
+    text-align: center;
   }
 }
 

@@ -125,6 +125,19 @@
   background-color: #E35336;
 }
 
+.btn-compra:disabled,
+.btn-compra-disabled {
+  background-color: #c9c0ba;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.btn-compra:disabled:hover,
+.btn-compra-disabled:hover {
+  background-color: #c9c0ba;
+}
+
 @media (max-width: 720px) {
   .bloco-texto {
     padding: 28px 18px 8px;

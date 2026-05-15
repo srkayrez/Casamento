@@ -22,7 +22,13 @@ João Caires</h1></pre>
       </div>
 
       <div class="acoes-produto">
-        <button class="btn-compra" (click)="comprar(item)">
+        <button
+          class="btn-compra"
+          [class.btn-compra-disabled]="item.disabled"
+          [attr.aria-disabled]="item.disabled"
+          [disabled]="item.disabled && !item.mensagem"
+          (click)="comprar(item)"
+        >
           <i class="pi pi-shopping-cart"></i> 
           Presentear
         </button>

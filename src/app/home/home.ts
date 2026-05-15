@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CountdownComponent } from "../timer/timer";
+import { DividerModule, Divider } from 'primeng/divider';
 
 @Component({
   selector: 'app-home',
-  imports: [CountdownComponent],
+  imports: [CountdownComponent, Divider],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
