@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 interface Produto {
   titulo: string;
   descricao: string;
-  valor: number;
+  valor?: number;
   foto: string;
   disabled?: boolean;
   mensagem?: string;
   link?: string;
+  pixCopiaECola?: string;
 }
 
 @Component({
@@ -22,9 +23,15 @@ export class Presente {
 
   produtos = signal<Produto[]>([
     { 
+      titulo: 'Sou muito legal e quero mandar um PIX!', 
+      descricao: 'Agradecidos!.', 
+      foto: '/bensoe.png',
+      pixCopiaECola: '00020126820014br.gov.bcb.pix0136c1612e94-c0b0-4e02-bf82-73db161c43cd0220Presente Joao e Tati5204000053039865802BR5911Joao Caires6009Sao Paulo62230519daqr16917573944824063042E51'
+    },
+    { 
       titulo: 'Mounjaro para o noivo', 
       descricao: 'Kit mounjaro para o noivo perder a barriguinha.', 
-      valor: 1100.90, 
+      valor: 1100.00, 
       foto: '/mounjaro.png',
       link: 'https://mpago.la/1YTuFQW'
     },
@@ -113,14 +120,57 @@ export class Presente {
       link: 'https://mpago.la/1iBLHND'
     },
     {
+      titulo: '1 Ano de ração pra Hel Faminta!.',
+      descricao: 'Vai me negar um prato de comida?!',
+      valor: 2000.00,
+      foto: '/racao.jpeg',
+      link: 'https://mpago.la/1xAdxHR'
+    },
+    {
+      titulo: 'Deus tocou seu coração.',
+      descricao: 'Não sei nem como agradecer, mas se Deus tocou seu coração, é porque ele tem um propósito lindo para você nessa história.',
+      valor: 3000.00,
+      foto: '/jesus.jpg',
+      link: 'https://mpago.la/27RRExy'
+    },
+    {
+      titulo: 'Você transcendeu e quer nos abençoar.',
+      descricao: 'Meu Deus, muito obrigada por você transcender e querer nos abençoar com essa quantia. Que Deus te abençoe em dobro!',
+      valor: 5000.00,
+      foto: '/transendendo.jpg',
+      link: 'https://mpago.la/1nTNiWx'
+    },
+    {
       titulo: 'Levar alguém que não foi convidado.',
-      descricao: '💀',
+      descricao: 'Tomara que você morra 💀',
       valor: 35000.00,
       foto: '/otario.jpeg',
       disabled: true,
       mensagem: "Sério mesmo? vacilão!"
     }
   ]);
+
+  isPixProduto(produto: Produto) {
+    return Boolean(produto.pixCopiaECola);
+  }
+
+  async copiarPix(produto: Produto) {
+    if (!produto.pixCopiaECola) {
+      return;
+    }
+
+    await this.copiarTexto(produto.pixCopiaECola);
+    alert('Pix copia e cola copiado!');
+  }
+
+  async abrirAppBanco(produto: Produto) {
+    if (!produto.pixCopiaECola) {
+      return;
+    }
+
+    await this.copiarTexto(produto.pixCopiaECola);
+    window.location.href = `pix://pay?payload=${encodeURIComponent(produto.pixCopiaECola)}`;
+  }
 
   comprar(produto: Produto) {
     if (produto.mensagem) {
@@ -132,7 +182,24 @@ export class Presente {
       return;
     }
 
-    console.log('Produto selecionado:', produto.titulo);
-    // Aqui você pode adicionar a lógica de abrir link de loja ou modal
+    if (produto.link) {
+      window.location.href = produto.link;
+    }
+  }
+
+  private async copiarTexto(texto: string) {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(texto);
+      return;
+    }
+
+    const campoTemporario = document.createElement('textarea');
+    campoTemporario.value = texto;
+    campoTemporario.style.position = 'fixed';
+    campoTemporario.style.opacity = '0';
+    document.body.appendChild(campoTemporario);
+    campoTemporario.select();
+    document.execCommand('copy');
+    document.body.removeChild(campoTemporario);
   }
 }

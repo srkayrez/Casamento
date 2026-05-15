@@ -101,6 +101,10 @@
 
 .acoes-produto {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn-compra {
@@ -123,6 +127,16 @@
 
 .btn-compra:hover {
   background-color: #E35336;
+}
+
+.btn-compra-secundario {
+  background-color: #f5efe6;
+  color: #d66b56;
+  border: 1px solid #d66b56;
+}
+
+.btn-compra-secundario:hover {
+  background-color: #fff8f2;
 }
 
 .btn-compra:disabled,

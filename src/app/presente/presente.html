@@ -3,10 +3,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parisienne&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
 <div class="bloco-texto">
-    <pre><h1 class="fonte-bonita">Tatiane Solcia
-&
-João Caires</h1></pre> 
-    <h2 class="fonte-montserrat">26 • 09 • 2026</h2>
     <h2 class="fonte-montserrat">Lista de Presentes</h2>
 </div>
 
@@ -18,20 +14,34 @@ João Caires</h1></pre>
       
       <div class="info-produto">
         <p class="descricao-texto">{{ item.descricao }}</p>
-        <span class="preco">{{ item.valor | currency:'BRL' }}</span>
+        @if (item.valor !== undefined) {
+          <span class="preco">{{ item.valor | currency:'BRL' }}</span>
+        }
       </div>
 
       <div class="acoes-produto">
-        <button
-          class="btn-compra"
-          [class.btn-compra-disabled]="item.disabled"
-          [attr.aria-disabled]="item.disabled"
-          [disabled]="item.disabled && !item.mensagem"
-          (click)="comprar(item)"
-        >
-          <i class="pi pi-shopping-cart"></i> 
-          Presentear
-        </button>
+        @if (isPixProduto(item)) {
+          <button
+            class="btn-compra"
+            type="button"
+            (click)="copiarPix(item)"
+          >
+            <i class="pi pi-copy"></i>
+            Copiar Pix
+          </button>
+        } @else {
+          <button
+            class="btn-compra"
+            type="button"
+            [class.btn-compra-disabled]="item.disabled"
+            [attr.aria-disabled]="item.disabled"
+            [disabled]="item.disabled && !item.mensagem"
+            (click)="comprar(item)"
+          >
+            <i class="pi pi-shopping-cart"></i> 
+            Presentear
+          </button>
+        }
       </div>
     </div>
   }
